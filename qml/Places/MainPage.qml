@@ -4,20 +4,16 @@ import com.nokia.meego 1.0
 Page {
     tools: commonTools
 
-    Label {
-        id: label
-        anchors.centerIn: parent
-        text: qsTr("Hello world!")
-        visible: false
-    }
+    ListView {
+        anchors.fill: parent; anchors.margins: 20
 
-    Button{
-        anchors {
-            horizontalCenter: parent.horizontalCenter
-            top: label.bottom
-            topMargin: 10
+        model: PlacesModel {}
+        delegate: Text {
+            text: name
+            MouseArea {
+                anchors.fill: parent
+                onClicked: parent.text = "clicked"
+            }
         }
-        text: qsTr("Click here!")
-        onClicked: label.visible = true
     }
 }
