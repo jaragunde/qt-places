@@ -24,7 +24,15 @@ PageStackWindow {
         id: myMenu
         visualParent: pageStack
         MenuLayout {
-            MenuItem { text: qsTr("Sample menu item") }
+            MenuItem {
+                text: qsTr("Acerca de")
+                onClicked: appWindow.pageStack.push(aboutPage)
+            }
         }
+    }
+
+    Component {
+        id: aboutPage
+        AboutPage { }
     }
 }
