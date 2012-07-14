@@ -14,6 +14,12 @@ PageStackWindow {
         id: commonTools
         visible: true
         ToolIcon {
+            platformIconId: "toolbar-add"
+            onClicked: {
+                mainPage.addPlace();
+            }
+        }
+        ToolIcon {
             platformIconId: "toolbar-view-menu"
             anchors.right: (parent === undefined) ? undefined : parent.right
             onClicked: (myMenu.status === DialogStatus.Closed) ? myMenu.open() : myMenu.close()

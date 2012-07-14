@@ -7,7 +7,9 @@ Page {
     ListView {
         anchors.fill: parent; anchors.margins: 20
 
-        model: PlacesModel {}
+        model: PlacesModel {
+            id: placesModel
+        }
         delegate: Text {
             text: name
             MouseArea {
@@ -15,5 +17,11 @@ Page {
                 onClicked: parent.text = "clicked"
             }
         }
+    }
+
+    function addPlace() {
+        placesModel.append({
+            "name": "New place"
+        });
     }
 }
