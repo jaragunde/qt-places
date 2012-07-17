@@ -21,7 +21,8 @@ Page {
 
     function addPlace() {
         placesModel.append({
-            "name": "New place"
+            "name": "New place",
+            "description": "New description"
         });
     }
 }
