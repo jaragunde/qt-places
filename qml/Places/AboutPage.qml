@@ -32,7 +32,6 @@ Page {
 
         Column {
             id: contentColumn
-            spacing: UIConstants.DEFAULT_MARGIN
             width: parent.width
 
             Label {
