@@ -14,9 +14,14 @@ Page {
             text: name
             MouseArea {
                 anchors.fill: parent
-                onClicked: parent.text = "clicked"
+                onClicked: appWindow.pageStack.push(placePage)
             }
         }
+    }
+
+    Component {
+        id: placePage
+        PlacePage { }
     }
 
     function addPlace() {
