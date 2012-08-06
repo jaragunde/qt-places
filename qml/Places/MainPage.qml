@@ -14,7 +14,11 @@ Page {
             text: name
             MouseArea {
                 anchors.fill: parent
-                onClicked: appWindow.pageStack.push(placePage)
+                onClicked: appWindow.pageStack.push(placePage,
+                    {
+                        name: name,
+                        description: description
+                    })
             }
         }
     }
