@@ -17,7 +17,9 @@ Page {
                 onClicked: appWindow.pageStack.push(placePage,
                     {
                         name: name,
-                        description: description
+                        description: description,
+                        locationLatitude: latitude,
+                        locationLongitude: longitude
                     })
             }
         }

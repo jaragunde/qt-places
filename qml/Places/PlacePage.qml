@@ -1,10 +1,14 @@
 import QtQuick 1.1
 import com.nokia.meego 1.0
+import QtMobility.location 1.2
+import 'constants.js' as Constants
 
 Page {
 
     property string name: ''
     property string description: ''
+    property double locationLatitude: 0
+    property double locationLongitude: 0
 
     tools: ToolBarLayout {
         ToolIcon {
@@ -36,6 +40,27 @@ Page {
             }
             text: description
             wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+        }
+
+        Item {
+            id: map
+            anchors {
+                left: parent.left
+                right: parent.right
+                margins: Constants.DEFAULT_MARGIN
+            }
+            height: Constants.MAP_AREA_HEIGHT
+            MapView {
+                width: parent.width
+                addressText: name
+                mapCenter: Coordinate {
+                     latitude: locationLatitude
+                     longitude: locationLongitude
+                }
+                startCentered: true
+                distance: 100
+
+            }
         }
     }
 }
