@@ -16,7 +16,7 @@ PageStackWindow {
         ToolIcon {
             platformIconId: "toolbar-add"
             onClicked: {
-                mainPage.addPlace("New place", "New description");
+                mainPage.openNewPlaceSheet();
             }
         }
         ToolIcon {
