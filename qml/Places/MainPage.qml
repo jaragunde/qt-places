@@ -30,10 +30,10 @@ Page {
         PlacePage { }
     }
 
-    function addPlace() {
+    function addPlace(name, description) {
         placesModel.append({
-            "name": "New place",
-            "description": "New description"
+            "name": name,
+            "description": description
         });
     }
 }
