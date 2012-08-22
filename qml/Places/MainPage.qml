@@ -1,6 +1,7 @@
 import QtQuick 1.1
 import com.nokia.meego 1.0
 import 'storage.js' as Storage
+import 'util.js' as Util
 
 Page {
     tools: commonTools
@@ -66,12 +67,9 @@ Page {
     }
 
     function addPlace(name, description, latitude, longitude) {
-        placesModel.append({
-            "name": name,
-            "description": description,
-            "latitude": latitude,
-            "longitude": longitude
-        });
+        var place = new Util.Place(0, name, description, latitude, longitude);
+        Storage.savePlace(place);
+        placesModel.append(place);
     }
 
     function openNewPlaceSheet() {

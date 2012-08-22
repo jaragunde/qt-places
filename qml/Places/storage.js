@@ -66,3 +66,21 @@ function loadPlaces() {
     }
     return res
 }
+
+function savePlace(place) {
+    var db = getDatabase()
+    var result = true
+    try {
+        db.transaction(function(tx) {
+                           tx.executeSql('INSERT INTO places (name, description, lat, lon) ' +
+                                         'VALUES (?, ?, ?, ?);', [place.name,
+                                                                  place.description,
+                                                                  place.latitude,
+                                                                  place.longitude])
+                       })
+    } catch (ex) {
+        console.log(ex)
+        result = false
+    }
+    return result
+}
