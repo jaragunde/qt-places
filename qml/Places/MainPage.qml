@@ -1,5 +1,6 @@
 import QtQuick 1.1
 import com.nokia.meego 1.0
+import 'storage.js' as Storage
 
 Page {
     tools: commonTools
@@ -75,5 +76,9 @@ Page {
 
     function openNewPlaceSheet() {
         sheet.open();
+    }
+
+    Component.onCompleted: {
+        Storage.initialize()
     }
 }
