@@ -79,6 +79,12 @@ Page {
     }
 
     Component.onCompleted: {
-        Storage.initialize()
+        //init DB
+        Storage.initialize();
+        //load places and put in ListModel
+        var placesList = Storage.loadPlaces();
+        for(var i in placesList) {
+            placesModel.append(placesList[i]);
+        }
     }
 }

@@ -39,3 +39,30 @@ function initialize() {
         console.log(ex)
     }
 }
+
+function loadPlaces() {
+    var db = getDatabase()
+    var res = []
+    try {
+        db.transaction(function(tx) {
+                           var query = 'SELECT code, name, description, lat, lon ' +
+                                   'FROM places ORDER BY name ASC;'
+
+                           var rs = tx.executeSql(query)
+                           if (rs.rows.length > 0) {
+                               for(var i = 0; i < rs.rows.length; i++) {
+                                   var currentItem = rs.rows.item(i)
+                                   var place = new Place(currentItem.code,
+                                                         currentItem.name,
+                                                         currentItem.description,
+                                                         currentItem.lat,
+                                                         currentItem.lon)
+                                   res.push(place)
+                               }
+                           }
+                       })
+    } catch (ex) {
+        console.log(ex)
+    }
+    return res
+}
