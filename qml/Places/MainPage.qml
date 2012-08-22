@@ -8,7 +8,7 @@ Page {
     ListView {
         anchors.fill: parent; anchors.margins: 20
 
-        model: PlacesModel {
+        model: ListModel {
             id: placesModel
         }
         delegate: Text {
