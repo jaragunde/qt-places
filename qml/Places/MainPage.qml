@@ -60,13 +60,16 @@ Page {
             }
         }
         onAccepted: addPlace(newElementName.text,
-                             newElementDescription.text)
+                             newElementDescription.text,
+                             43.369493, -8.407938)
     }
 
-    function addPlace(name, description) {
+    function addPlace(name, description, latitude, longitude) {
         placesModel.append({
             "name": name,
-            "description": description
+            "description": description,
+            "latitude": latitude,
+            "longitude": longitude
         });
     }
 
