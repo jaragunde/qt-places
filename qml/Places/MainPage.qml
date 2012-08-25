@@ -6,6 +6,8 @@ import 'util.js' as Util
 Page {
     tools: commonTools
 
+    Header { id: header }
+
     ListView {
         anchors.fill: parent; anchors.margins: 20
 
