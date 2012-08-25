@@ -53,7 +53,7 @@ var LIST_ITEM_HEIGHT_SMALL  = 64
 
 var MARGIN_XLARGE = 16
 
-var LIST_TILE_SIZE      = 26
+var LIST_TILE_SIZE      = FONT_LARGE
 var LIST_TITLE_COLOR                    = '#282828'
 var LIST_TITLE_COLOR_PRESSED            = '#797979'
 var LIST_TITLE_COLOR_INVERTED           = '#ffffff'

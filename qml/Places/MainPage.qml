@@ -1,5 +1,6 @@
 import QtQuick 1.1
 import com.nokia.meego 1.0
+import 'constants.js' as Constants
 import 'storage.js' as Storage
 import 'util.js' as Util
 
@@ -9,14 +10,30 @@ Page {
     Header { id: header }
 
     ListView {
-        anchors.fill: parent; anchors.margins: 20
+        spacing: Constants.DEFAULT_MARGIN
+        anchors {
+            top: header.bottom
+            left: parent.left
+            right: parent.right
+            bottom: parent.bottom
+            topMargin: Constants.DEFAULT_MARGIN
+            leftMargin: Constants.DEFAULT_MARGIN
+            rightMargin: Constants.DEFAULT_MARGIN
+        }
 
         model: ListModel {
             id: placesModel
         }
-        delegate: Text {
+        delegate: Label {
             text: name
+            platformStyle: LabelStyle {
+                fontPixelSize: Constants.LIST_TILE_SIZE
+            }
+            font.weight: Font.Bold
+            color: mouseArea.pressed ? Constants.LIST_TITLE_COLOR_PRESSED : Constants.LIST_TITLE_COLOR
+
             MouseArea {
+                id: mouseArea
                 anchors.fill: parent
                 onClicked: appWindow.pageStack.push(placePage,
                     {
