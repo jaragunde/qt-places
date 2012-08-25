@@ -30,49 +30,58 @@ Page {
         }
     }
 
+    anchors {
+        topMargin: appWindow.inPortrait ?
+            Constants.HEADER_DEFAULT_TOP_SPACING_PORTRAIT :
+            Constants.HEADER_DEFAULT_TOP_SPACING_LANDSCAPE
+        leftMargin: Constants.DEFAULT_MARGIN
+        rightMargin: Constants.DEFAULT_MARGIN
+        bottomMargin: Constants.DEFAULT_MARGIN
+    }
+
     Column {
         id: contentColumn
         width: parent.width
+        anchors {
+            left: parent.left
+            right: parent.right
+        }
+        spacing: 2 * Constants.DEFAULT_MARGIN
 
-        Text {
+        Label {
             id: nameLabel
-            anchors {
-                left: parent.left
-                right: parent.right
-            }
+            font.weight: Font.Bold
+            font.pixelSize: Constants.FONT_XXXLARGE
             text: name
             wrapMode: Text.WrapAtWordBoundaryOrAnywhere
         }
 
-        Text {
+        Label {
             id: descriptionLabel
-            anchors {
-                left: parent.left
-                right: parent.right
-            }
             text: description
             wrapMode: Text.WrapAtWordBoundaryOrAnywhere
         }
 
-        Item {
-            id: map
-            anchors {
-                left: parent.left
-                right: parent.right
-                margins: Constants.DEFAULT_MARGIN
-            }
-            height: Constants.MAP_AREA_HEIGHT
-            MapView {
-                width: parent.width
-                addressText: name
-                mapCenter: Coordinate {
-                     latitude: locationLatitude
-                     longitude: locationLongitude
-                }
-                startCentered: true
-                distance: 100
+    }
 
+    Item {
+        id: map
+        anchors {
+            left: parent.left
+            right: parent.right
+            bottom: parent.bottom
+        }
+        height: Constants.MAP_AREA_HEIGHT
+        MapView {
+            width: parent.width
+            addressText: name
+            mapCenter: Coordinate {
+                 latitude: locationLatitude
+                 longitude: locationLongitude
             }
+            startCentered: true
+            distance: 100
+
         }
     }
 }
