@@ -14,7 +14,7 @@ function initialize() {
         db.transaction(
                     function(tx) {
                         tx.executeSql('CREATE TABLE IF NOT EXISTS places ' +
-                                      '(code INT PRIMARY KEY, ' +
+                                      '(code INTEGER PRIMARY KEY, ' +
                                       'name TEXT, ' +
                                       'description TEXT, ' +
                                       'lat REAL, ' +
