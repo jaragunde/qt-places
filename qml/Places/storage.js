@@ -84,3 +84,17 @@ function savePlace(place) {
     }
     return result
 }
+
+function removePlace(code) {
+    var db = getDatabase()
+    var result = true
+    try {
+        db.transaction(function(tx) {
+                           tx.executeSql('DELETE FROM places WHERE code=?;', [code])
+                       })
+    } catch (ex) {
+        console.log(ex)
+        result = false
+    }
+    return result
+}

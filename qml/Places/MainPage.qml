@@ -18,6 +18,8 @@ Page {
                 anchors.fill: parent
                 onClicked: appWindow.pageStack.push(placePage,
                     {
+                        index: index,
+                        code: code,
                         name: name,
                         description: description,
                         locationLatitude: latitude,

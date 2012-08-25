@@ -2,9 +2,12 @@ import QtQuick 1.1
 import com.nokia.meego 1.0
 import QtMobility.location 1.2
 import 'constants.js' as Constants
+import 'storage.js' as Storage
 
 Page {
 
+    property int index: -1
+    property int code: -1
     property string name: ''
     property string description: ''
     property double locationLatitude: 0
@@ -15,6 +18,15 @@ Page {
             id: backIcon
             iconId: 'toolbar-back'
             onClicked: pageStack.pop()
+        }
+        ToolIcon {
+            id: deleteIcon
+            iconId: 'toolbar-delete'
+            onClicked: {
+                Storage.removePlace(code);
+                pageStack.pop();
+                placesModel.remove(index);
+            }
         }
     }
 
