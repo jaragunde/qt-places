@@ -99,12 +99,6 @@ Item {
         zoomLevel: getZoomLevel(distance)
         center: mapCenter
 
-        MapImage {
-            coordinate: mapCenter
-            source: 'qrc:/resources/icon-s-bus-stop.png'
-            visible: startCentered
-        }
-
         MapCircle {
             id: positionInnerCircle
             center: mapCenter
