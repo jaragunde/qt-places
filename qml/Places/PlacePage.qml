@@ -60,6 +60,7 @@ Page {
             id: descriptionLabel
             text: description
             wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+            width: parent.width
         }
 
     }
