@@ -1,5 +1,6 @@
 import QtQuick 1.1
 import com.nokia.meego 1.0
+import QtMobility.location 1.2
 import 'constants.js' as Constants
 
 Sheet {
@@ -52,9 +53,32 @@ Sheet {
                 height: Constants.TEXT_AREA_HEIGHT
             }
         }
+
+        Item {
+            id: newPlaceMap
+            anchors {
+                left: parent.left
+                right: parent.right
+            }
+            height: Constants.MAP_AREA_HEIGHT
+            MapView {
+                width: parent.width
+                mapCenter: Coordinate {
+                    latitude: positionSource.position.coordinate.latitude
+                    longitude: positionSource.position.coordinate.longitude
+                }
+                startCentered: true
+                distance: 100
+            }
+            PositionSource {
+                id: positionSource
+                active: platformWindow.active
+            }
+        }
     }
 
     onAccepted: addPlace(newElementName.text,
                          newElementDescription.text,
-                         43.369493, -8.407938)
+                         positionSource.position.coordinate.latitude,
+                         positionSource.position.coordinate.longitude)
 }
