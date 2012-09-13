@@ -33,10 +33,6 @@ Item {
 
     signal clicked()
 
-    Component.onCompleted: {
-        state = 'ready'
-    }
-
     Behavior on height {
         NumberAnimation { duration: 100; easing.type: Easing.InOutQuad }
     }
@@ -121,14 +117,6 @@ Item {
             }
         }
 
-        MapPolyline {
-            id: mapPolyline
-            border {
-                color: Constants.MAP_POLYLINE_COLOR
-                width: 4
-            }
-        }
-
         MapMouseArea {
             anchors.fill: parent
             onClicked: mapComponent.clicked()
@@ -194,92 +182,8 @@ Item {
         }
     }
 
-    BorderImage {
-        id: border
-        source: 'qrc:/resources/round-corners-shadow.png'
-        anchors.fill: parent
-        border.left: 18; border.top: 18
-        border.right: 18; border.bottom: 18
-        visible: !fullscreen
-    }
-
-    Repeater {
-        model: landmarksModel
-        delegate: Component {
-            MapImage {
-                coordinate: Coordinate {
-                    latitude: model.lat
-                    longitude: model.lon
-                }
-                source: 'qrc:/resources/icon-s-bus-stop.png'
-            }
-        }
-
-        onItemAdded: {
-            if (drawLandmarks) {
-                map.addMapObject(item)
-            }
-            if (drawPolyline) {
-                mapPolyline.addCoordinate(item.coordinate)
-            }
-        }
-
-        onItemRemoved: {
-            if (drawLandmarks) {
-                map.removeMapObject(item)
-            }
-            if (drawPolyline &&
-                    !(inSimulator && mapPolyline.path.length === 1)) {
-                mapPolyline.removeCoordinate(item.coordinate)
-            }
-        }
-    }
-
-    Rectangle {
-        id: addressRectangle
-        width: addressLabel.implicitWidth + Constants.DEFAULT_MARGIN
-        height: 40
-        anchors {
-            horizontalCenter: parent.horizontalCenter
-            top: parent.top
-            margins: Constants.DEFAULT_MARGIN / 2
-        }
-        color: Constants.MAP_RECTANGLE_BACKGROUND_COLOR
-        radius: 10
-        border {
-            color: Constants.MAP_RECTANGLE_BORDER_COLOR
-            width: 2
-        }
-        visible: addressText
-
-        Label {
-            id: addressLabel
-            anchors.centerIn: parent
-            text: addressText
-            color: 'white'
-        }
-    }
-
     PositionSource {
         id: positionSource
         active: platformWindow.active
     }
-
-    states: [
-        State {
-            name: 'ready'
-            PropertyChanges {
-                target: positionInnerCircle
-                center: positionSource.position.coordinate
-            }
-            PropertyChanges {
-                target: positionOuterCircle
-                center: positionSource.position.coordinate
-            }
-            PropertyChanges {
-                target: map
-                center: startCentered ? mapCenter : positionSource.position.coordinate
-            }
-        }
-    ]
 }
