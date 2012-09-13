@@ -82,7 +82,7 @@ Page {
             }
             startCentered: true
             distance: 100
-
+            interactive: true
         }
     }
 }
