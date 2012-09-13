@@ -55,30 +55,22 @@ Sheet {
         }
 
         Item {
-            id: newPlaceMap
             anchors {
                 left: parent.left
                 right: parent.right
             }
             height: Constants.MAP_AREA_HEIGHT
-            MapView {
+            MapEditView {
+                id: newPlaceMap
                 width: parent.width
-                mapCenter: Coordinate {
-                    latitude: positionSource.position.coordinate.latitude
-                    longitude: positionSource.position.coordinate.longitude
-                }
                 startCentered: true
                 distance: 100
-            }
-            PositionSource {
-                id: positionSource
-                active: platformWindow.active
             }
         }
     }
 
     onAccepted: addPlace(newElementName.text,
                          newElementDescription.text,
-                         positionSource.position.coordinate.latitude,
-                         positionSource.position.coordinate.longitude)
+                         newPlaceMap.getSelected().latitude,
+                         newPlaceMap.getSelected().longitude)
 }
