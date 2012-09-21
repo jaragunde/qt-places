@@ -21,20 +21,6 @@ function initialize() {
                                       'lon REAL' +
                                       ')')
                     })
-        //insert example values
-        //TODO: remove later
-        db.transaction(
-                    function(tx) {
-                        tx.executeSql('INSERT INTO places (name, description, lat, lon) ' +
-                                      'VALUES ("Igalia", "A nice place to work",' +
-                                      '43.349274, -8.409691)')
-                    })
-        db.transaction(
-                    function(tx) {
-                        tx.executeSql('INSERT INTO places (name, description, lat, lon) ' +
-                                      'VALUES ("María Pita", "A nice place to visit", ' +
-                                      '43.370921, -8.395825)')
-                    })
     } catch (ex) {
         console.log(ex)
     }
