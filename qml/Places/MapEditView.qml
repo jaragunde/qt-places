@@ -13,8 +13,8 @@ Item {
     id: mapComponent
     height: Constants.MAP_AREA_HEIGHT
 
-    property Coordinate mapCenter: Coordinate { }
-    property Coordinate selected: Coordinate { }
+    property Coordinate mapCenter: positionSource.position.coordinate
+    property Coordinate selected: mapCenter
     property Coordinate lowerLeftCoordinate: Coordinate { }
     property Coordinate upperRightCoordinate: Coordinate { }
     property real distance: 1000
@@ -30,12 +30,6 @@ Item {
     property bool fullscreen: interactive
 
     signal clicked()
-
-    Component.onCompleted: {
-        //we set these here to avoid automatic property bindings
-        mapCenter = positionSource.position.coordinate;
-        selected = positionSource.position.coordinate;
-    }
 
     Behavior on height {
         NumberAnimation { duration: 100; easing.type: Easing.InOutQuad }
