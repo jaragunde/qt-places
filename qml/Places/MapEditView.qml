@@ -27,6 +27,7 @@ Item {
     property ListModel landmarksModel
 
     property bool interactive: true
+    property bool clickable: false
     property bool fullscreen: interactive
 
     signal clicked()
@@ -148,13 +149,50 @@ Item {
     MouseArea {
         id: mouseArea
         enabled: interactive
+
+        property bool isPressed: false
+        property bool isPanning: false
+        property int lastX: -1
+        property int lastY: -1
+
         anchors.fill : parent
 
+        onPressed: {
+            isPressed = true
+            lastX = mouse.x
+            lastY = mouse.y
+        }
+
         onReleased: {
-            selected = map.toCoordinate(Qt.point(mouse.x, mouse.y))
+            if (clickable && !isPanning) {
+                select(mouse.x, mouse.y)
+            }
+            isPanning = false
+            isPressed = false;
+        }
+
+        onPositionChanged: {
+            if (isPressed) {
+                isPanning = true
+                var dx = mouse.x - lastX
+                var dy = mouse.y - lastY
+                map.pan(-dx, -dy)
+                lastX = mouse.x
+                lastY = mouse.y
+            }
+        }
+
+        onCanceled: {
+            isPanning = false;
+            isPressed = false;
+        }
+
+        function select(x, y) {
+            selected = map.toCoordinate(Qt.point(x, y))
             positionInnerCircle.center = selected;
             positionOuterCircle.center = selected;
         }
+
     }
 
     PositionSource {

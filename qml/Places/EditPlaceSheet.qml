@@ -65,6 +65,8 @@ Sheet {
                 width: parent.width
                 startCentered: true
                 distance: 100
+                interactive: true
+                clickable: true
             }
         }
     }
