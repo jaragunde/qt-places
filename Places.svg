@@ -116,6 +116,47 @@
        y1="407.91776"
        x2="808.08081"
        y2="407.91776" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3783"
+       id="radialGradient3005"
+       gradientUnits="userSpaceOnUse"
+       cx="332.85715"
+       cy="530.93359"
+       fx="332.85715"
+       fy="530.93359"
+       r="219.07143" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3783-0"
+       id="radialGradient3005-2"
+       gradientUnits="userSpaceOnUse"
+       cx="332.85715"
+       cy="530.93359"
+       fx="332.85715"
+       fy="530.93359"
+       r="219.07143" />
+    <linearGradient
+       id="linearGradient3783-0">
+      <stop
+         id="stop3785-5"
+         offset="0"
+         style="stop-color:#000000;stop-opacity:0;" />
+      <stop
+         id="stop3787-7"
+         offset="1"
+         style="stop-color:#fffafa;stop-opacity:1;" />
+    </linearGradient>
+    <radialGradient
+       r="219.07143"
+       fy="530.93359"
+       fx="332.85715"
+       cy="530.93359"
+       cx="332.85715"
+       gradientUnits="userSpaceOnUse"
+       id="radialGradient3063"
+       xlink:href="#linearGradient3783-0"
+       inkscape:collect="always" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -125,8 +166,8 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.495"
-     inkscape:cx="389.77329"
-     inkscape:cy="379.20152"
+     inkscape:cx="186.51414"
+     inkscape:cy="339.08082"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -148,7 +189,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -169,39 +210,26 @@
        inkscape:export-filename="/home/jaragunde/projects/qt-projects/Places/Places64.png"
        inkscape:export-xdpi="7.8000002"
        inkscape:export-ydpi="7.8000002" />
+    <g
+       id="g3084"
+       transform="matrix(0.70710678,-0.70710678,0.70710678,0.70710678,-124.5121,366.40356)">
+      <path
+         id="path3002"
+         transform="translate(-16.891812,36.641804)"
+         d="m 363.1875,61.59375 c -120.98488,0 -219.0625,99.08044 -219.0625,221.28125 0,122.20081 98.07762,221.25 219.0625,221.25 120.98488,0 219.0625,-99.04919 219.0625,-221.25 0,-122.20081 -98.07762,-221.28125 -219.0625,-221.28125 z m 0,150.46875 c 39.10423,0 70.78125,31.70827 70.78125,70.8125 0,39.10423 -31.67702,70.78125 -70.78125,70.78125 -39.10423,0 -70.8125,-31.67702 -70.8125,-70.78125 0,-39.10423 31.70827,-70.8125 70.8125,-70.8125 z"
+         style="fill:#ffffff;fill-rule:evenodd;stroke:none"
+         inkscape:connector-curvature="0" />
+      <path
+         id="rect3009"
+         transform="translate(-16.891812,36.641804)"
+         d="m 144,282.875 0,221.15625 219.1875,0 0,-150.375 c -39.09379,0 -70.79558,-31.69141 -70.8125,-70.78125 l -148.375,0 z"
+         style="fill:#ffffff;fill-rule:evenodd;stroke:none"
+         inkscape:connector-curvature="0" />
+    </g>
     <path
-       sodipodi:type="arc"
-       style="fill:url(#radialGradient3781);fill-opacity:1"
-       id="path2997"
-       sodipodi:cx="352.85715"
-       sodipodi:cy="715.2193"
-       sodipodi:rx="184.28572"
-       sodipodi:ry="25.714285"
-       d="m 537.14287,715.2193 c 0,14.20161 -82.50753,25.71428 -184.28572,25.71428 -101.7782,0 -184.28572,-11.51267 -184.28572,-25.71428 0,-14.20161 82.50752,-25.71429 184.28572,-25.71429 101.77819,0 184.28572,11.51268 184.28572,25.71429 z"
-       transform="translate(-7.0710679,-36.345187)"
-       inkscape:export-filename="/home/jaragunde/projects/qt-projects/Places/Places64.png"
-       inkscape:export-xdpi="7.8000002"
-       inkscape:export-ydpi="7.8000002" />
-    <path
-       style="fill:#ffffff;fill-rule:evenodd;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 346.28125,100.9375 c -120.71367,0 -218.5625,97.84883 -218.5625,218.5625 0,87.25426 51.13176,162.57826 125.0625,197.625 l 92.9375,160.9375 92.5,-160.21875 c 74.7762,-34.71991 126.625,-110.47298 126.625,-198.34375 0,-120.71367 -97.84883,-218.5625 -218.5625,-218.5625 z m 0,97.375 c 66.93374,0 121.1875,54.25376 121.1875,121.1875 0,66.93374 -54.25376,121.1875 -121.1875,121.1875 -66.93374,0 -121.1875,-54.25376 -121.1875,-121.1875 0,-66.93374 54.25376,-121.1875 121.1875,-121.1875 z"
-       id="path2985"
-       inkscape:export-filename="/home/jaragunde/projects/qt-projects/Places/Places64.png"
-       inkscape:export-xdpi="7.8000002"
-       inkscape:export-ydpi="7.8000002"
+       style="fill:none;stroke:#ffffff;stroke-width:7.39192104px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 199.97881,673.46245 292.60808,0"
+       id="path3090"
        inkscape:connector-curvature="0" />
-    <path
-       transform="matrix(0.55448351,0,0,0.55448351,161.72192,25.111101)"
-       d="m 551.42857,530.93359 c 0,120.71367 -97.85776,218.57143 -218.57142,218.57143 -120.71367,0 -218.57143,-97.85776 -218.57143,-218.57143 0,-120.71366 97.85776,-218.57142 218.57143,-218.57142 120.71366,0 218.57142,97.85776 218.57142,218.57142 z"
-       sodipodi:ry="218.57143"
-       sodipodi:rx="218.57143"
-       sodipodi:cy="530.93359"
-       sodipodi:cx="332.85715"
-       id="path3807"
-       style="fill:url(#radialGradient3846);fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       sodipodi:type="arc"
-       inkscape:export-filename="/home/jaragunde/projects/qt-projects/Places/Places64.png"
-       inkscape:export-xdpi="7.8000002"
-       inkscape:export-ydpi="7.8000002" />
   </g>
 </svg>
