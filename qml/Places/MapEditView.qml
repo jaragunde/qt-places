@@ -201,4 +201,8 @@ Item {
     function getSelected() {
         return selected;
     }
+
+    function reset() {
+        selected = positionSource.position.coordinate;
+    }
 }

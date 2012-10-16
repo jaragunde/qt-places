@@ -75,4 +75,10 @@ Sheet {
                          newElementDescription.text,
                          newPlaceMap.getSelected().latitude,
                          newPlaceMap.getSelected().longitude)
+
+    function reset() {
+        newElementName.text = "";
+        newElementDescription.text = "";
+        newPlaceMap.reset();
+    }
 }

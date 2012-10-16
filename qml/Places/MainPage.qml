@@ -64,6 +64,7 @@ Page {
     }
 
     function openNewPlaceSheet() {
+        sheet.reset();
         sheet.open();
     }
 
