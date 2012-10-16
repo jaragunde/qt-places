@@ -13,8 +13,8 @@ Item {
     id: mapComponent
     height: Constants.MAP_AREA_HEIGHT
 
-    property Coordinate mapCenter: positionSource.position.coordinate
-    property Coordinate selected: mapCenter
+    property Coordinate selected: positionSource.position.coordinate
+    property Coordinate mapCenter: selected
     property Coordinate lowerLeftCoordinate: Coordinate { }
     property Coordinate upperRightCoordinate: Coordinate { }
     property real distance: 1000
@@ -96,7 +96,7 @@ Item {
 
         MapCircle {
             id: positionInnerCircle
-            center: mapCenter
+            center: selected
             radius: 450 / map.zoomLevel
             color: Constants.MAP_POSITION_INNER_CIRCLE_COLOR
             border {
@@ -107,7 +107,7 @@ Item {
 
         MapCircle {
             id: positionOuterCircle
-            center: mapCenter
+            center: selected
             radius: 750 / map.zoomLevel
             color: 'transparent'
             border {
@@ -189,8 +189,6 @@ Item {
 
         function select(x, y) {
             selected = map.toCoordinate(Qt.point(x, y))
-            positionInnerCircle.center = selected;
-            positionOuterCircle.center = selected;
         }
 
     }
