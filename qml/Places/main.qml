@@ -31,9 +31,25 @@ PageStackWindow {
         visualParent: pageStack
         MenuLayout {
             MenuItem {
+                text: qsTr("Reset database")
+                onClicked: {
+                    confirmationDialog.open();
+                }
+            }
+            MenuItem {
                 text: qsTr("Acerca de")
                 onClicked: appWindow.pageStack.push(aboutPage)
             }
+        }
+    }
+
+    QueryDialog {
+        id: confirmationDialog
+        message: "This will delete all stored places. Are you sure?"
+        acceptButtonText: "Yes"
+        rejectButtonText: "No"
+        onAccepted: {
+            mainPage.clearDB();
         }
     }
 

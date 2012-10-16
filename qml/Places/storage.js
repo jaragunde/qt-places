@@ -84,3 +84,26 @@ function removePlace(code) {
     }
     return result
 }
+
+function resetDB() {
+    var db = getDatabase()
+    var result = true
+    try {
+        db.transaction(function(tx) {
+            tx.executeSql('DROP TABLE places')
+        })
+        db.transaction(function(tx) {
+            tx.executeSql('CREATE TABLE places ' +
+                '(code INTEGER PRIMARY KEY, ' +
+                'name TEXT, ' +
+                'description TEXT, ' +
+                'lat REAL, ' +
+                'lon REAL' +
+                ')')
+        })
+    } catch (ex) {
+        console.log(ex)
+        result = false
+    }
+    return result
+}

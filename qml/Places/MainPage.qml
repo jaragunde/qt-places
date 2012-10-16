@@ -68,6 +68,11 @@ Page {
         sheet.open();
     }
 
+    function clearDB() {
+        Storage.resetDB();
+        placesModel.clear();
+    }
+
     Component.onCompleted: {
         //init DB
         Storage.initialize();
