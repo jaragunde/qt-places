@@ -95,26 +95,13 @@ Item {
         zoomLevel: getZoomLevel(distance)
         center: mapCenter
 
-        MapCircle {
-            id: positionInnerCircle
-            center: mapCenter
-            radius: 450 / map.zoomLevel
-            color: Constants.MAP_POSITION_INNER_CIRCLE_COLOR
-            border {
-                width: 1
-                color: Constants.MAP_POSITION_OUTER_CIRCLE_COLOR
-            }
-        }
-
-        MapCircle {
-            id: positionOuterCircle
-            center: mapCenter
-            radius: 750 / map.zoomLevel
-            color: 'transparent'
-            border {
-                width: 2
-                color: Constants.MAP_POSITION_OUTER_CIRCLE_COLOR
-            }
+        MapImage {
+            id: positionIcon
+            coordinate: mapCenter
+            offset.x: -10
+            offset.y: -22
+            source: 'qrc:/img/place-icon.png'
+            visible: startCentered
         }
 
         MapMouseArea {
