@@ -71,10 +71,17 @@ Sheet {
         }
     }
 
-    onAccepted: addPlace(newElementName.text,
-                         newElementDescription.text,
-                         newPlaceMap.getSelected().latitude,
-                         newPlaceMap.getSelected().longitude)
+    onAccepted: {
+        if(newElementName.text.length == 0) {
+            // add nothing if the name is empty
+            return;
+        }
+        addPlace(newElementName.text,
+                 newElementDescription.text,
+                 newPlaceMap.getSelected().latitude,
+                 newPlaceMap.getSelected().longitude);
+    }
+
 
     function reset() {
         newElementName.text = "";
