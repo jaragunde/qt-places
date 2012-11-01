@@ -30,6 +30,8 @@ Item {
     property bool clickable: false
     property bool fullscreen: interactive
 
+    property int scrollTrigger: 10
+
     signal clicked()
 
     Behavior on height {
@@ -154,6 +156,7 @@ Item {
         property bool isPanning: false
         property int lastX: -1
         property int lastY: -1
+        property int pixelsDelta: 0
 
         anchors.fill : parent
 
@@ -169,22 +172,29 @@ Item {
             }
             isPanning = false
             isPressed = false;
+            pixelsDelta = 0;
         }
 
         onPositionChanged: {
-            if (isPressed) {
-                isPanning = true
-                var dx = mouse.x - lastX
-                var dy = mouse.y - lastY
+            var dx = mouse.x - lastX
+            var dy = mouse.y - lastY
+            lastX = mouse.x
+            lastY = mouse.y
+            if (isPressed && !isPanning) {
+                pixelsDelta += abs(dx) + abs(dy)
+                if(pixelsDelta > scrollTrigger) {
+                    isPanning = true
+                }
+            }
+            if (isPanning) {
                 map.pan(-dx, -dy)
-                lastX = mouse.x
-                lastY = mouse.y
             }
         }
 
         onCanceled: {
             isPanning = false;
             isPressed = false;
+            pixelsDelta = 0;
         }
 
         function select(x, y) {
@@ -204,5 +214,12 @@ Item {
 
     function reset() {
         selected = positionSource.position.coordinate;
+    }
+
+    function abs(val) {
+        if(val < 0) {
+            return -1 * val;
+        }
+        return val;
     }
 }
