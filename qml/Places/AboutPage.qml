@@ -1,5 +1,6 @@
 import QtQuick 1.1
 import com.nokia.meego 1.0
+import 'constants.js' as UIConstants
 
 Page {
     property string license: 'This program is free software: you can redistribute it and/or modify ' +
@@ -28,10 +29,16 @@ Page {
         id: flick
         clip: true
         anchors.fill: parent
+        anchors {
+            topMargin: UIConstants.DEFAULT_MARGIN
+            leftMargin: UIConstants.DEFAULT_MARGIN
+            rightMargin: UIConstants.DEFAULT_MARGIN
+        }
         contentHeight: contentColumn.height
 
         Column {
             id: contentColumn
+            spacing: UIConstants.DEFAULT_MARGIN
             width: parent.width
 
             Label {
@@ -39,6 +46,10 @@ Page {
                 text: 'Places 0.1'
                 width: parent.width
                 horizontalAlignment: Text.AlignHCenter
+                platformStyle: LabelStyle {
+                    fontPixelSize: UIConstants.FONT_XLARGE
+                }
+                color: UIConstants.COLOR_FOREGROUND
             }
 
             Label {
@@ -46,13 +57,23 @@ Page {
                 text: 'Copyright © 2012 Jacobo Aragunde'
                 width: parent.width
                 horizontalAlignment: Text.AlignHCenter
+                platformStyle: LabelStyle {
+                    fontPixelSize: UIConstants.FONT_LSMALL
+                    fontFamily: UIConstants.FONT_FAMILY_LIGHT
+                }
+                color: UIConstants.COLOR_FOREGROUND
             }
 
             Label {
                 id: aboutText
-                text: 'Mantiene una lista con tus lugares favoritos'
+                text: "Register interesting places in your phone so you don't forget how to get back to them."
                 width: parent.width
                 horizontalAlignment: Text.AlignHCenter
+                platformStyle: LabelStyle {
+                    fontPixelSize: UIConstants.FONT_LSMALL
+                    fontFamily: UIConstants.FONT_FAMILY_LIGHT
+                }
+                color: UIConstants.COLOR_FOREGROUND
             }
 
             Button {
@@ -71,5 +92,6 @@ Page {
 
     ScrollDecorator {
         flickableItem: flick
+        anchors.rightMargin: -UIConstants.DEFAULT_MARGIN
     }
 }

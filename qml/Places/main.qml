@@ -37,7 +37,7 @@ PageStackWindow {
                 }
             }
             MenuItem {
-                text: qsTr("Acerca de")
+                text: qsTr("About")
                 onClicked: appWindow.pageStack.push(aboutPage)
             }
         }
