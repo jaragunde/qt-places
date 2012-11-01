@@ -41,6 +41,12 @@ Page {
             spacing: UIConstants.DEFAULT_MARGIN
             width: parent.width
 
+            Image {
+                id: aboutImage
+                anchors.horizontalCenter: parent.horizontalCenter
+                source: 'qrc:/img/Places256.png'
+            }
+
             Label {
                 id: aboutVersion
                 text: 'Places 0.1'
